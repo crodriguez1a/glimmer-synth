@@ -1,0 +1,74 @@
+html {
+  font: 100 16px Arial, sans-serif;
+  color: grey; }
+
+.glimmer-synth {
+  position: relative;
+  text-align: center; }
+
+.synth-key {
+  position: relative;
+  border: 1px solid #555;
+  border-bottom: 2px solid #555;
+  border-right: 2px solid #555;
+  border-left: none;
+  display: inline-flex;
+  width: 1rem;
+  padding: 0.5rem;
+  height: 7rem;
+  z-index: 1;
+  margin-left: -0.25rem;
+  border-bottom-right-radius: 0.35rem;
+  border-bottom-left-radius: 0.35rem;
+  overflow: hidden; }
+  .synth-key:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background: #222;
+    filter: blur(3px);
+    z-index: 3; }
+  .synth-key:first-child {
+    border-left: 1px solid #555; }
+  .synth-key.is-pressed {
+    /* fallback/image non-cover color */
+    background-color: white;
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient(white, #efefef);
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#efefef));
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient(white, #efefef);
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient(white, #efefef); }
+  .synth-key.is-ebony {
+    /* fallback/image non-cover color */
+    background-color: #222;
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient(#222, #555);
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#555));
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient(#222, #555);
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient(#222, #555);
+    position: absolute;
+    margin-left: -1rem;
+    height: 3rem;
+    width: 0.5rem;
+    z-index: 2;
+    border-bottom: 0.25rem solid #222; }
+    .synth-key.is-ebony.is-pressed {
+      /* fallback/image non-cover color */
+      background-color: #222;
+      /* Firefox 3.6+ */
+      background-image: -moz-linear-gradient(#222, #222);
+      /* Safari 4+, Chrome 1+ */
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#222));
+      /* Safari 5.1+, Chrome 10+ */
+      background-image: -webkit-linear-gradient(#222, #222);
+      /* Opera 11.10+ */
+      background-image: -o-linear-gradient(#222, #222); }
