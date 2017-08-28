@@ -18,6 +18,7 @@
     "@glimmer/inline-precompile": "^1.0.0",
     "@glimmer/resolver": "^0.3.0",
     "@glimmer/test-helpers": "^0.30.0",
+    "@glimmer/web-component": "^0.2.0",
     "@types/qunit": "^2.0.31",
     "broccoli-asset-rev": "^2.5.0",
     "ember-cli": "^2.14.0",
@@ -31,5 +32,11 @@
   "engines": {
     "node": ">= 4.0"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "broccoli-concat": "^3.2.2",
+    "broccoli-merge-trees": "^2.0.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "synthos": "^2.1.0"
+  }
 }

@@ -1,3 +1,10 @@
-h1 {
-  color: #444;
-}
+$mediumgrey: #555;
+$lightgrey: #efefef;
+$darkgrey: #555;
+$black: #222;
+
+@import 'global';
+@import 'mixins/gradient';
+@import 'mixins/box-shadow';
+@import 'glimmer-synth';
+@import 'synth-key';
