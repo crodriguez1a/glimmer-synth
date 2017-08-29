@@ -1,0 +1,166 @@
+html {
+  font: 100 16px Helvetica, Arial, sans-serif;
+  color: grey;
+  background: #222;
+  height: 100%; }
+
+.glimmer-synth {
+  position: relative;
+  text-align: center; }
+  .glimmer-synth .display {
+    position: relative;
+    width: 15rem;
+    height: 2rem;
+    margin: 0 auto;
+    background-color: #cee048;
+    color: #2f3409;
+    box-shadow: inset 0 3px 0 3px #c0cf35;
+    text-align: left;
+    padding: 0.75rem; }
+    .glimmer-synth .display:before {
+      content: '--';
+      font-size: 200%;
+      position: absolute;
+      top: 0; }
+    .glimmer-synth .display h2 {
+      margin: 0;
+      font-size: 110%;
+      text-transform: uppercase;
+      font-weight: 400;
+      position: absolute;
+      bottom: 0.5rem; }
+  .glimmer-synth .controls ul {
+    list-style: none;
+    display: inline-flex; }
+    .glimmer-synth .controls ul li {
+      margin-right: 0.5rem;
+      text-align: center; }
+      .glimmer-synth .controls ul li button {
+        cursor: pointer;
+        position: relative;
+        /* fallback/image non-cover color */
+        background-color: #555;
+        /* Firefox 3.6+ */
+        background-image: -moz-linear-gradient(#555, #222);
+        /* Safari 4+, Chrome 1+ */
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#555), to(#222));
+        /* Safari 5.1+, Chrome 10+ */
+        background-image: -webkit-linear-gradient(#555, #222);
+        /* Opera 11.10+ */
+        background-image: -o-linear-gradient(#555, #222);
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 100%;
+        height: 1.75rem;
+        width: 1.75rem;
+        overflow: hidden;
+        outline-width: 0;
+        border: 1px solid black; }
+        .glimmer-synth .controls ul li button:after {
+          position: absolute;
+          left: 0;
+          top: 0;
+          content: '';
+          width: 100%;
+          height: 50%;
+          background: rgba(0, 0, 0, 0.25);
+          border-radius: 75%; }
+        .glimmer-synth .controls ul li button.text-icon {
+          font-size: 0.5rem; }
+        .glimmer-synth .controls ul li button.is-active {
+          /* fallback/image non-cover color */
+          background-color: #222;
+          /* Firefox 3.6+ */
+          background-image: -moz-linear-gradient(#222, #222);
+          /* Safari 4+, Chrome 1+ */
+          background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#222));
+          /* Safari 5.1+, Chrome 10+ */
+          background-image: -webkit-linear-gradient(#222, #222);
+          /* Opera 11.10+ */
+          background-image: -o-linear-gradient(#222, #222);
+          color: #0197F6; }
+        .glimmer-synth .controls ul li button.text-button {
+          width: auto;
+          border-radius: 1rem;
+          font-weight: 100;
+          font-size: 0.75rem;
+          padding: 0 1rem 0 1rem; }
+
+.synth-key {
+  background: white;
+  position: relative;
+  border-bottom: 2px solid #555;
+  border-right: 2px solid #555;
+  border-left: none;
+  border-top: 1px solid #222;
+  display: inline-flex;
+  width: 1rem;
+  padding: 0.5rem;
+  height: 7rem;
+  z-index: 1;
+  margin-left: -0.3rem;
+  border-bottom-right-radius: 0.35rem;
+  border-bottom-left-radius: 0.35rem;
+  overflow: hidden; }
+  .synth-key:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background: #222;
+    filter: blur(3px);
+    z-index: 3; }
+  .synth-key:first-child {
+    border-left: 1px solid #555; }
+  .synth-key.is-pressed {
+    /* fallback/image non-cover color */
+    background-color: white;
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient(white, #efefef);
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#efefef));
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient(white, #efefef);
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient(white, #efefef); }
+  .synth-key.is-ebony {
+    /* fallback/image non-cover color */
+    background-color: #222;
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient(#222, #555);
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#555));
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient(#222, #555);
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient(#222, #555);
+    position: absolute;
+    margin-left: -1rem;
+    height: 3rem;
+    width: 0.5rem;
+    z-index: 2;
+    border-bottom: 0.25rem solid #222; }
+    .synth-key.is-ebony.is-pressed {
+      /* fallback/image non-cover color */
+      background-color: #222;
+      /* Firefox 3.6+ */
+      background-image: -moz-linear-gradient(#222, #222);
+      /* Safari 4+, Chrome 1+ */
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#222));
+      /* Safari 5.1+, Chrome 10+ */
+      background-image: -webkit-linear-gradient(#222, #222);
+      /* Opera 11.10+ */
+      background-image: -o-linear-gradient(#222, #222); }
+    .synth-key.is-ebony .key-label {
+      opacity: 1; }
+  .synth-key .key-label {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    color: #222;
+    opacity: 0.25; }
