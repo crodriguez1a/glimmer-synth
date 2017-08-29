@@ -1,5 +1,20 @@
 <div class="glimmer-synth">
+
+  <div class="display">
+    <h2>{{oscillator}}</h2>
+  </div>
+
+  <div class="controls">
+    <ul>
+      <li><button onclick={{action changeOscillator "sawtooth"}} class="text-icon {{_if (equals oscillator "sawtooth") "is-active" ""}}">|/\/</button></li>
+      <li><button onclick={{action changeOscillator "sine"}} class="{{_if (equals oscillator "sine") "is-active" ""}}">&#8767;</button></li>
+      <li><button onclick={{action changeOscillator "triangle"}} class="{{_if (equals oscillator "triangle") "is-active" ""}}">&#9709;</button></li>
+      <li><button onclick={{action changeOscillator "square"}} class="{{_if (equals oscillator "square") "is-active" ""}}">&#9706;</button></li>
+      <li><button class="text-button{{sustainActive}}" onclick={{action sustain}}>Sustain</button></li>
+    </ul>
+  </div>
+
   {{#each pianoKeys key="@index" as |pianoKey|}}
-    <synth-key @code={{pianoKey.code}} @frequency={{pianoKey.frequency}} @ebony={{pianoKey.ebony}} />
+    <synth-key @name={{pianoKey.name}} @code={{pianoKey.code}} @frequency={{pianoKey.frequency}} @ebony={{pianoKey.ebony}} />
   {{/each}}
 </div>

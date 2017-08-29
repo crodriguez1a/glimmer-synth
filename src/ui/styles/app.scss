@@ -2,9 +2,11 @@ $mediumgrey: #555;
 $lightgrey: #efefef;
 $darkgrey: #555;
 $black: #222;
+$blue: #0197F6;
+$teal: #00D9C0;
 
-@import 'global';
 @import 'mixins/gradient';
 @import 'mixins/box-shadow';
+@import 'global';
 @import 'glimmer-synth';
 @import 'synth-key';

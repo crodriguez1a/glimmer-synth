@@ -1,4 +1,84 @@
 .glimmer-synth {
   position: relative;
   text-align: center;
+
+  .display {
+    &:before {
+      content: '--';
+      font-size: 200%;
+      position: absolute;
+      top: 0;
+    }
+    position: relative;
+    width: 15rem;
+    height: 2rem;
+    margin: 0 auto;
+    background-color: #cee048;
+    color: #2f3409;
+    box-shadow: inset 0 3px 0 3px #c0cf35;
+    text-align: left;
+    padding: 0.75rem;
+    h2 {
+      margin: 0;
+      font-size: 110%;
+      text-transform: uppercase;
+      font-weight: 400;
+      position: absolute;
+      bottom: 0.5rem;
+    }
+  }
+
+  .controls {
+    ul {
+      list-style: none;
+      display: inline-flex;
+      li {
+        margin-right: 0.5rem;
+        text-align: center;
+        button {
+          cursor: pointer;
+          position: relative;
+          @include gradient($darkgrey, $black);
+          color: rgba(255,255,255,0.95);
+          font-size: 1rem;
+          font-weight: bold;
+          border-radius: 100%;
+          height: 1.75rem;
+          width: 1.75rem;
+          overflow: hidden;
+          outline-width: 0;
+          border: 1px solid black;
+
+          &:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: '';
+            width: 100%;
+            height: 50%;
+            background: rgba(0,0,0,0.25);
+            border-radius: 75%;
+          }
+
+          &.text-icon {
+            font-size: 0.5rem;
+          }
+
+          &.is-active {
+            @include gradient($black, $black);
+            color: $blue;
+          }
+
+          &.text-button {
+            width: auto;
+            border-radius: 1rem;
+            font-weight: 100;
+            font-size: 0.75rem;
+            padding: 0 1rem 0 1rem;
+          }
+        }
+      }
+
+    }
+  }
 }

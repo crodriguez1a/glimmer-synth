@@ -1,4 +1,7 @@
 html {
-  font: 100 16px Arial, sans-serif;
+  font: 100 16px Helvetica, Arial, sans-serif;
   color: grey;
+  background: $black;
+  height: 100%;
+  // @include gradient($black, $teal);
 }

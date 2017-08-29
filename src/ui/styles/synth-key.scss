@@ -1,15 +1,16 @@
 .synth-key {
+  background: white;
   position: relative;
-  border: 1px solid $mediumgrey;
   border-bottom: 2px solid $mediumgrey;
   border-right: 2px solid $mediumgrey;
   border-left: none;
+  border-top: 1px solid $black;
   display: inline-flex;
   width: 1rem;
   padding: 0.5rem;
   height: 7rem;
   z-index: 1;
-  margin-left: -0.25rem;
+  margin-left: -0.3rem;
   border-bottom-right-radius: 0.35rem;
   border-bottom-left-radius: 0.35rem;
   overflow: hidden;
@@ -41,5 +42,18 @@
     width: 0.5rem;
     z-index: 2;
     border-bottom: 0.25rem solid $black;
+    .key-label {
+      opacity: 1;
+    }
+  }
+
+  .key-label {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    color: $black;
+    opacity: 0.25;
   }
 }

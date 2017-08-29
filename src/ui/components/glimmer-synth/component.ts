@@ -1,10 +1,10 @@
 import Component, { tracked } from '@glimmer/component';
-import { configureSynth } from './../../../utils/audio';
+import { configureSynth, sustain, changeOscillator } from './../../../utils/audio';
 
 export default class GlimmerSynth extends Component {
   constructor(opts) {
     super(opts);
-    configureSynth({});
+    configureSynth({ type: 'triangle' });
   }
 
   @tracked
@@ -103,4 +103,40 @@ export default class GlimmerSynth extends Component {
       frequency: 329.6 // E
     }
   ];
+
+  /**
+
+  */
+  @tracked
+  _sustainOn:boolean = false;
+
+  /**
+
+  */
+  @tracked
+  public oscillator:string = 'triangle';
+
+  /**
+
+  */
+  @tracked('_sustainOn')
+  public get sustainActive() {
+    return this._sustainOn ? ' is-active' : '';
+  }
+
+  /**
+
+  */
+  sustain() {
+    this._sustainOn = !this._sustainOn;
+    sustain(this._sustainOn);
+  }
+
+  /**
+
+  */
+  changeOscillator(type:string) {
+    this.oscillator = type;
+    changeOscillator(type);
+  }
 }

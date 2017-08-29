@@ -45,17 +45,25 @@ export default class SynthKey extends Component {
   @tracked
   isPressed:string = '';
 
+  isTyping:boolean = false;
+
   /**
     Handle event
 
     @method _eventHandler
   */
-  private async _eventHandler(e) {
+  private _eventHandler(e) {
+    // TODO generator?
+    while (this.isTyping) {
+      return;
+    }
     if (e.keyCode === this.code) {
+      this.isTyping = true;
       playNote(this.frequency);
       this.isPressed = ' is-pressed';
-      await setTimeout(() => {
+      setTimeout(() => {
         this.isPressed = '';
+        this.isTyping = false;
       }, 300);
     }
   }

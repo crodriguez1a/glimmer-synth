@@ -1,3 +1,5 @@
+// TODO fork this
+
 (function (root) {
   /*
    * Initialize
@@ -94,6 +96,21 @@
     }
   }
 
+  // https://codepen.io/gregh/pen/OWrjOb?editors=0010
+  function makeDistortionCurve( amount ) {
+    var k = typeof amount === 'number' ? amount : 0,
+      n_samples = 100,
+      curve = new Float32Array(n_samples),
+      deg = Math.PI / 180,
+      i = 0,
+      x;
+    for ( ; i < n_samples; ++i ) {
+      x = i * 2 / n_samples - 1;
+      curve[i] = ( 3 + k ) * x * 10 * deg / ( Math.PI + k * Math.abs(x) );
+    }
+    return curve;
+  };
+
   /*
    *  Accepts a "sound" object and plays it
    */
@@ -107,7 +124,14 @@
     this.gainNode = this.context.createGain()
     this.gainNode.gain.value = sound.volume || 1
 
+    this.dist = this.context.createWaveShaper();
+
     this.carrier.connect(this.gainNode)
+    this.gainNode.connect(this.dist)
+    this.dist.connect(this.context.destination);
+
+    this.dist.curve = makeDistortionCurve(10000);
+
     chainableNode = this.gainNode
 
       // Make white noise
@@ -139,7 +163,9 @@
     this.start(sound)
 
     if (sound.duration) {
-      this.stop(sound)
+      // this.stop(sound)
+      // NOTE Custom http://alemangui.github.io/blog//2015/12/26/ramp-to-value.html
+      this.gainNode.gain.setTargetAtTime(0, this.context.currentTime, sound.duration);
     }
   }
 
@@ -335,7 +361,7 @@ class Synthos {
     this.frequencies[this.frequencies.length] = frequency
   }
 
-  play () {
+  play ({ filter='lowpass' }) {
     for (var index = 0; index < this.frequencies.length; index++) {
       this.track[index] = {
         type: this.type,
@@ -343,7 +369,7 @@ class Synthos {
         duration: this.durations[index],
         filter: {
           frequency: 1000,
-          type: 'highpass',
+          type: filter, // highpass lowpass bandpass lowshelf highshelf peaking notch allpass
           gain: 25
         }
       }
