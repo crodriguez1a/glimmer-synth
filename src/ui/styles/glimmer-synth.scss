@@ -1,6 +1,10 @@
 .glimmer-synth {
   position: relative;
   text-align: center;
+  min-width: 25%;
+  margin: 0 auto;
+  border: 1px solid black;
+  @include box-shadow(3px, 3px, 30rem, black, false);
 
   .display {
     &:before {
@@ -15,7 +19,8 @@
     margin: 0 auto;
     background-color: #cee048;
     color: #2f3409;
-    box-shadow: inset 0 3px 0 3px #c0cf35;
+    @include box-shadow(3px, 3px, 0, #c0cf35, true);
+
     text-align: left;
     padding: 0.75rem;
     h2 {
@@ -36,18 +41,29 @@
         margin-right: 0.5rem;
         text-align: center;
         button {
+          padding: 0;
           cursor: pointer;
           position: relative;
           @include gradient($darkgrey, $black);
-          color: rgba(255,255,255,0.95);
-          font-size: 1rem;
-          font-weight: bold;
           border-radius: 100%;
-          height: 1.75rem;
-          width: 1.75rem;
+          height: 3rem;
+          width: 3rem;
           overflow: hidden;
           outline-width: 0;
           border: 1px solid black;
+          padding: 0;
+          color: rgba(255,255,255,0.95);
+          span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            width: auto;
+            height: 90%;
+            &.text-icon {
+              font-size: 0.75rem;
+            }
+          }
 
           &:after {
             position: absolute;
@@ -60,10 +76,6 @@
             border-radius: 75%;
           }
 
-          &.text-icon {
-            font-size: 0.5rem;
-          }
-
           &.is-active {
             @include gradient($black, $black);
             color: $blue;
@@ -72,8 +84,8 @@
           &.text-button {
             width: auto;
             border-radius: 1rem;
-            font-weight: 100;
-            font-size: 0.75rem;
+            font-weight: 400;
+            font-size: 1rem;
             padding: 0 1rem 0 1rem;
           }
         }

@@ -52,7 +52,7 @@ export default class SynthKey extends Component {
 
     @method _eventHandler
   */
-  private _eventHandler(e) {
+  private async _eventHandler(e) {
     // TODO generator?
     while (this.isTyping) {
       return;
@@ -61,10 +61,10 @@ export default class SynthKey extends Component {
       this.isTyping = true;
       playNote(this.frequency);
       this.isPressed = ' is-pressed';
-      setTimeout(() => {
+      await setTimeout(() => {
         this.isPressed = '';
         this.isTyping = false;
-      }, 300);
+      }, 150);
     }
   }
 

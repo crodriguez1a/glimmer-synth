@@ -108,7 +108,7 @@ export default class GlimmerSynth extends Component {
 
   */
   @tracked
-  _sustainOn:boolean = false;
+  private _sustainOn:boolean = false;
 
   /**
 
@@ -127,7 +127,7 @@ export default class GlimmerSynth extends Component {
   /**
 
   */
-  sustain() {
+  public sustain() {
     this._sustainOn = !this._sustainOn;
     sustain(this._sustainOn);
   }
@@ -135,7 +135,7 @@ export default class GlimmerSynth extends Component {
   /**
 
   */
-  changeOscillator(type:string) {
+  public changeOscillator(type:string) {
     this.oscillator = type;
     changeOscillator(type);
   }

@@ -6,10 +6,10 @@
 
   <div class="controls">
     <ul>
-      <li><button onclick={{action changeOscillator "sawtooth"}} class="text-icon {{_if (equals oscillator "sawtooth") "is-active" ""}}">|/\/</button></li>
-      <li><button onclick={{action changeOscillator "sine"}} class="{{_if (equals oscillator "sine") "is-active" ""}}">&#8767;</button></li>
-      <li><button onclick={{action changeOscillator "triangle"}} class="{{_if (equals oscillator "triangle") "is-active" ""}}">&#9709;</button></li>
-      <li><button onclick={{action changeOscillator "square"}} class="{{_if (equals oscillator "square") "is-active" ""}}">&#9706;</button></li>
+      <li><button onclick={{action changeOscillator "sawtooth"}} class="{{_if (equals oscillator "sawtooth") "is-active" ""}}"><span class="text-icon">|/\/</span></button></li>
+      <li><button onclick={{action changeOscillator "sine"}} class="{{_if (equals oscillator "sine") "is-active" ""}}"><span>&#8767;</span></button></li>
+      <li><button onclick={{action changeOscillator "triangle"}} class="{{_if (equals oscillator "triangle") "is-active" ""}}"><span>&#9709;</span></button></li>
+      <li><button onclick={{action changeOscillator "square"}} class="{{_if (equals oscillator "square") "is-active" ""}}"><span>&#9706;</span></button></li>
       <li><button class="text-button{{sustainActive}}" onclick={{action sustain}}>Sustain</button></li>
     </ul>
   </div>

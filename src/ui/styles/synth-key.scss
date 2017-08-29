@@ -1,12 +1,13 @@
 .synth-key {
   background: white;
   position: relative;
-  border-bottom: 2px solid $mediumgrey;
-  border-right: 2px solid $mediumgrey;
+  border-bottom: 2px solid $black;
+  border-right: 2px solid $black;
   border-left: none;
   border-top: 1px solid $black;
   display: inline-flex;
-  width: 1rem;
+  width: 5%;
+  max-width: 2rem;
   padding: 0.5rem;
   height: 7rem;
   z-index: 1;
@@ -37,9 +38,9 @@
       @include gradient($black, $black);
     }
     position: absolute;
-    margin-left: -1rem;
+    margin-left: -1.5rem;
     height: 3rem;
-    width: 0.5rem;
+    width: 1rem;
     z-index: 2;
     border-bottom: 0.25rem solid $black;
     .key-label {

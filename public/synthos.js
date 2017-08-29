@@ -6,7 +6,8 @@
    */
 
   function Synth () {
-    this.context = new AudioContext()
+    const _audioContext = window.AudioContext || window.webkitAudioContext;
+    this.context = new _audioContext();
     this.modulators = []
     this.noise = {
       node: null,
@@ -130,7 +131,7 @@
     this.gainNode.connect(this.dist)
     this.dist.connect(this.context.destination);
 
-    this.dist.curve = makeDistortionCurve(10000);
+    this.dist.curve = makeDistortionCurve(3000);
 
     chainableNode = this.gainNode
 
@@ -199,9 +200,7 @@
       endTime = this.context.currentTime + sound.duration + decay
       this.gainNode.gain.setTargetAtTime(0.0, endTime, 0.1)
     } else if (sound && sound.duration) {
-      endTime = this.context.currentTime + sound.duration
-      this.carrier.stop(endTime)
-      this.gainNode.gain.setValueAtTime(0.0, endTime)
+      this.gainNode.gain.setTargetAtTime(0, this.context.currentTime, sound.duration);
     } else {
       this.gain(0)
     }
@@ -361,7 +360,7 @@ class Synthos {
     this.frequencies[this.frequencies.length] = frequency
   }
 
-  play ({ filter='lowpass' }) {
+  play ({ filter='bandpass' }) {
     for (var index = 0; index < this.frequencies.length; index++) {
       this.track[index] = {
         type: this.type,
